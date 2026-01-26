@@ -1,0 +1,280 @@
+/* Disable scrolling / clicks behind the intro until finished */
+body:has(.folder-overlay:not(.finished)),
+body.folder-overlay-active {
+  overflow: hidden;
+  touch-action: none;
+  pointer-events: none;
+}
+
+/* Hide header and footer while the folder landing is visible */
+body:has(.folder-overlay:not(.finished)) .header-container,
+body:has(.folder-overlay:not(.finished)) .site-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Allow interaction inside overlay */
+.folder-overlay {
+  pointer-events: all;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.folder {
+  height: 100vh;
+  max-width: 80vw;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  perspective: 2000px;
+  cursor: pointer;
+}
+
+.back-cover {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04),
+              0 12px 28px rgba(0, 0, 0, 0.08);
+  z-index: 0;
+}
+
+.front-cover {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 0 14px 14px 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06),
+              0 14px 32px rgba(0, 0, 0, 0.10);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  overflow: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 22px 30px;
+  z-index: 2;
+}
+
+.front-cover::before {
+  content: '';
+  position: absolute;
+  left: 26px;
+  top: 0;
+  width: 16px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
+  background-repeat: no-repeat;
+  background-position:
+    center 10%,
+    center 26%,
+    center 42%,
+    center 58%,
+    center 74%,
+    center 90%;
+  background-size: 16px 16px;
+}
+
+/* Optional collage images that were previously on the cover are
+   disabled for now, keeping the cover blank with typography only. */
+.folder-cover-image {
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  border-radius: 0;
+  transform-origin: center center;
+}
+.folder-cover-image--main {
+  inset: 32% 24% 32% 24%;
+  background-image: url('../folder/f08775fc-d349-4e54-8281-3026d635d0be.jpeg');
+  transform: rotate(-2deg);
+}
+
+.folder-cover-image--secondary {
+  width: 17%;
+  aspect-ratio: 3 / 4;
+  bottom: 11%;
+  left: 2%;
+  background-image: url('../folder/e6776324-8285-4f1c-a314-53c962a31c75.jpeg');
+  transform: rotate(2.3deg);
+}
+
+.folder-cover-image--tertiary {
+  width: 20%;
+  aspect-ratio: 3 / 4;
+  bottom: 9%;
+  right: 9%;
+  background-image: url('../folder/42ba7c8e-aa2c-4e3c-b0e6-2d91fdb7ca4f.jpeg');
+  transform: rotate(-1.4deg);
+}
+
+.folder-cover-image--id {
+  display: none;
+}
+
+.folder-peek-image {
+  position: absolute;
+  width: 25%;
+  aspect-ratio: 3 / 4;
+  right: -5%;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03),
+              0 10px 22px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transform-origin: center;
+  z-index: 1;
+}
+
+.folder-peek-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.folder-peek-image--1 {
+  top: 10%;
+  transform: rotate(2deg);
+}
+
+.folder-peek-image--2 {
+  top: 24%;
+  transform: rotate(-4deg);
+}
+
+.folder-peek-image--3 {
+  top: 64%;
+  transform: rotate(6deg);
+}
+
+.folder-cover-label {
+  position: absolute;
+  top: 18px;
+  left: 34px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  text-transform: lowercase;
+  z-index: 2;
+}
+
+.folder-cover-label-main {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+
+.folder-cover-label-sub {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.folder-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  z-index: -1;
+  outline: 500vw solid #fff;
+  background: transparent;
+  transition: transform 2.1s cubic-bezier(0.15, 0, 0.05, 1),
+              opacity 0.8s ease;
+}
+
+.folder-overlay.is-zooming .folder-mask {
+  transform: scale(50);
+  opacity: 0;
+}
+
+.folder-overlay.is-zooming {
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: background 0.6s ease, backdrop-filter 0.6s ease;
+}
+
+.folder-overlay.finished {
+  display: none !important;
+}
+
+.folder-overlay.fade-out {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .folder {
+    height: auto;
+    width: 80vw;
+    max-width: 480px;
+  }
+
+  .back-cover {
+  border-radius: 0 2px 2px 0;
+}
+
+.front-cover {
+  border-radius: 0 10px 10px 0;
+}
+
+.front-cover::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  width: 16px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
+    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
+  background-size: 16px 16px;
+  }
+
+  .folder-peek-image {
+    right: -4%;
+    width: 32%;
+  }
+
+  .folder-peek-image--1 {
+    top: 10%;
+    transform: rotate(2deg);
+  }
+
+  .folder-peek-image--2 {
+    top: 24%;
+    transform: rotate(-2deg);
+  }
+
+  .folder-peek-image--3 {
+    top: 64%;
+    transform: rotate(4deg);
+  }
+
+}

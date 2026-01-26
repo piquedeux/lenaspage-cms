@@ -1,0 +1,93 @@
+[
+    {
+        "title": {
+            "de": "Project 2",
+            "en": "Project 2"
+        },
+        "client": {
+            "de": "Self",
+            "en": "Self"
+        },
+        "description": {
+            "de": "hfuasdihfsdkhfsdh",
+            "en": "Tailored jacket with articulated sleeves and sculpted proportions."
+        },
+        "year": "2025",
+        "image": "1768578734_xei0l1czLj2VqMkZYUxz0yXTzM.jpeg",
+        "gallery": [
+            "1768578734_696a5eae38e41_xei0l1czLj2VqMkZYUxz0yXTzM.jpeg",
+            "1768578734_696a5eae38f59_xei0l1czLj2VqMkZYUxz0yXTzM (1).jpeg",
+            "1768578734_696a5eae39068_WtrVcs1l6ZgCsGlRVJ2hjcgdw.jpeg",
+            "1768578734_696a5eae39247_Wk6lZ5SSlwau6rQYbVIJul5UPE.jpeg",
+            "1768578734_696a5eae39406_Vj9z4BbpX8HwooZC1ZwwSjmiKuc.jpeg"
+        ]
+    },
+    {
+        "title": {
+            "de": "HEIDI",
+            "en": "HEIDI"
+        },
+        "client": {
+            "de": "Self",
+            "en": "Self"
+        },
+        "description": {
+            "de": "A couture-inspired look exploring layered volume and structured silhouettes.",
+            "en": "A couture-inspired look exploring layered volume and structured silhouettes."
+        },
+        "year": "2025",
+        "image": "1768578782_fKNghKMbf5kFMlLaItNJfMXrEg.jpeg",
+        "gallery": []
+    },
+    {
+        "title": {
+            "de": "Project 1",
+            "en": "Project 1"
+        },
+        "client": {
+            "de": "Self",
+            "en": "Self"
+        },
+        "description": {
+            "de": "Minimal, draped top with asymmetric closure and pin detailing.",
+            "en": "Minimal, draped top with asymmetric closure and pin detailing."
+        },
+        "year": "2025",
+        "image": "1767103037_images (1).jpeg",
+        "gallery": []
+    },
+    {
+        "title": {
+            "de": "Project 3",
+            "en": "Project 3"
+        },
+        "client": {
+            "de": "Self",
+            "en": "Self"
+        },
+        "description": {
+            "de": "asjkhdkjashdkash",
+            "en": "Two-piece set with geometric knit and cropped blazer."
+        },
+        "year": "2024",
+        "image": "1768578782_2qc1JoaBb7BivU9zEI7kXp9ApE.jpeg",
+        "gallery": []
+    },
+    {
+        "title": {
+            "de": "Project 4",
+            "en": "Project 4"
+        },
+        "client": {
+            "de": "Self",
+            "en": "Self"
+        },
+        "description": {
+            "de": "Patterned mesh dress with ruched volume and sheer layering.",
+            "en": "Patterned mesh dress with ruched volume and sheer layering."
+        },
+        "year": "2023",
+        "image": "1768578782_fKNghKMbf5kFMlLaItNJfMXrEg.jpeg",
+        "gallery": []
+    }
+]

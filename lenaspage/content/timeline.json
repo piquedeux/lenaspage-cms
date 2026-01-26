@@ -1,0 +1,20 @@
+[
+    {
+        "title": {
+            "de": "asdas",
+            "en": ""
+        },
+        "date_start": "2025-09-17",
+        "date_end": "",
+        "ongoing": true
+    },
+    {
+        "title": {
+            "de": "Hallo",
+            "en": "Hello"
+        },
+        "date_start": "2025-11-13",
+        "date_end": "2026-03-27",
+        "ongoing": false
+    }
+]
