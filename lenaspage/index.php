@@ -86,34 +86,30 @@ switch ($currentPage) {
         $metaDescription = $settings['site_description'];
 
         ob_start(); 
-        if ($showIntro): ?>
-            <div class="folder-overlay" id="folderOverlay">
-                <div class="folder">
-                    <div class="back-cover"></div>
-                    <div class="front-cover">
-                        <div class="folder-cover-image folder-cover-image--main"></div>
-                        <div class="folder-cover-image folder-cover-image--secondary"></div>
-                        <div class="folder-cover-image folder-cover-image--tertiary"></div>
-                        <div class="folder-cover-label">
-                            <span class="folder-cover-label-main">portfolio</span>
-                            <span class="folder-cover-label-sub">lena rickenstorf</span>
+        if ($showIntro && !isset($_SESSION['seen_loader'])) {
+            $_SESSION['seen_loader'] = true;
+        ?>
+            <div id="initialLoader" class="initial-loader">
+                <div class="loader-backdrop"></div>
+                <div class="loader-viewport">
+                    <div class="loader-card">
+                        <div class="loader-logo">
+                            <span>lena rickenstorf</span>
                         </div>
+                        <!-- simple static loader - no progress -->
                     </div>
-                    <?php if (!empty($peekProjects)): ?>
-                        <?php $peekIndex = 0; ?>
-                        <?php foreach ($peekProjects as $peekProject): ?>
-                            <?php
-                                $peekIndex++;
-                                $peekClass = 'folder-peek-image--' . $peekIndex;
-                            ?>
-                            <div class="folder-peek-image <?php echo $peekClass; ?>">
-                                <img src="<?php echo SITE_URL; ?>/assets/projects/<?php echo e($peekProject['image']); ?>" alt="" loading="lazy">
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
                 </div>
             </div>
-        <?php endif; ?>
+            <script>
+            (function(){
+                // hide loader after 5s and reveal content
+                var loader = document.getElementById('initialLoader');
+                setTimeout(function(){
+                    if (loader) loader.style.display = 'none';
+                }, 5000);
+            })();
+            </script>
+        <?php } ?>
         <?php render_project_grid($projects); ?>
         <?php
         $content = ob_get_clean();
@@ -148,6 +144,69 @@ switch ($currentPage) {
                 <?php endif; ?>
             </div>
         </div>
+        </div>
+        <?php
+        $content = ob_get_clean();
+        break;
+
+    case 'contact':
+        $pageData = getPage('contact') ?: ['title' => 'Contact', 'content' => ''];
+        $metaTitle = 'Contact - ' . $settings['site_name'];
+        $metaDescription = $settings['site_description'];
+
+        // Handle form submission
+        $formSuccess = false;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
+            $hp = trim($_POST['hp'] ?? '');
+            if ($hp === '') {
+                $name = trim($_POST['name'] ?? '');
+                $email = trim($_POST['email'] ?? '');
+                $msg = trim($_POST['message'] ?? '');
+
+                $entry = [
+                    'date' => date('Y-m-d H:i:s'),
+                    'nameMail' => ($name !== '' ? $name . ' ' : '') . ($email !== '' ? "<{$email}>" : ''),
+                    'msg' => $msg
+                ];
+
+                $logFile = CONTENT_DIR . '/contact-log.txt';
+                if (!is_dir(CONTENT_DIR)) mkdir(CONTENT_DIR, 0755, true);
+                file_put_contents($logFile, json_encode($entry, JSON_UNESCAPED_UNICODE) . PHP_EOL, FILE_APPEND | LOCK_EX);
+                $formSuccess = true;
+            } else {
+                // honeypot filled: treat as spam (silently ignore)
+                $formSuccess = true;
+            }
+        }
+
+        ob_start();
+        ?>
+        <div class="folder-page folder-page--info">
+            <div class="contact-page">
+                <h1><?php echo e(getTranslation($pageData['title'], 'title')); ?></h1>
+                <div class="about-content">
+                    <?php echo nl2br(e(getTranslation($pageData['content'], 'content') ?? '')); ?>
+                </div>
+
+                <?php if ($formSuccess): ?>
+                    <p>Vielen Dank! Deine Nachricht wurde empfangen.</p>
+                <?php else: ?>
+                    <form method="POST">
+                        <input type="hidden" name="contact_submit" value="1">
+                        <div style="display:none;"> <!-- honeypot -->
+                            <label>Leave this empty</label>
+                            <input type="text" name="hp" value="">
+                        </div>
+                        <label>Name</label>
+                        <input type="text" name="name" required>
+                        <label>E-Mail</label>
+                        <input type="email" name="email" required>
+                        <label>Nachricht</label>
+                        <textarea name="message" rows="6" required></textarea>
+                        <button type="submit">Absenden</button>
+                    </form>
+                <?php endif; ?>
+            </div>
         </div>
         <?php
         $content = ob_get_clean();

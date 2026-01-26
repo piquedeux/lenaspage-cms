@@ -160,6 +160,8 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --page-vertical-padding: 32px;
+  --page-horizontal-padding: 24px;
 }
 
 * {
@@ -308,7 +310,7 @@ nav a.active {
       rgba(0, 0, 0, 0.06) 50%,
       #ffffff 50.6%,
       #ffffff 100%);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
   z-index: 0;
 }
 
@@ -362,7 +364,7 @@ body.is-home.folder-opened .folder-shell::after {
   height: 100%;
   min-height: 100vh;
   overflow: hidden;
-  padding: 24px 40px 32px;
+  padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -376,7 +378,7 @@ body.is-home .folder-shell-scroll {
 main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 24px 0 40px;
+  padding: var(--page-vertical-padding) 0 var(--page-vertical-padding);
   position: relative;
   z-index: 0;
   flex: 1 0 auto;
@@ -386,7 +388,7 @@ main {
   position: relative;
   max-width: 80vw;
   margin: 0 auto;
-  padding: 24px 24px 64px;
+  padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
   background: #ffffff;
 }
 
@@ -418,43 +420,27 @@ main {
 
 .folder-page--project-detail,
 .folder-page--info {
-  transform: rotate(-0.7deg);
-  transform-origin: center top;
-  width: min(72vw, 1100px);
-  aspect-ratio: 4 / 3;
-  max-height: calc(100vh - 160px);
-  overflow: auto;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04),
-              0 12px 28px rgba(0, 0, 0, 0.06);
+  transform: none;
+  transform-origin: unset;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: unset;
+  max-height: none;
+  overflow: visible;
+  box-shadow: none;
 }
 
 .folder-page--project-detail::before,
+.folder-page--project-detail::after,
+.folder-page--info::before,
+.folder-page--info::after {
+  display: none !important;
+}
+
+/* Remove decorative holes on project/detail pages */
+.folder-page--project-detail::before,
 .folder-page--info::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 10px;
-  height: 28px;
-  pointer-events: none;
-  z-index: 0;
-  background-color: transparent;
-  background-image:
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
-  background-repeat: no-repeat;
-  background-position:
-    10% center,
-    26% center,
-    42% center,
-    58% center,
-    74% center,
-    90% center;
-  background-size: 16px 16px;
+  background-image: none;
 }
 
 .folder-page--project-detail::after,
@@ -702,7 +688,7 @@ main {
 }
 
 .project-detail-image {
-  margin-bottom: 40px;
+  margin-bottom: var(--page-vertical-padding);
   overflow: hidden;
   aspect-ratio: 16/10;
   background: #f0f0f0;
@@ -715,7 +701,7 @@ main {
 }
 
 .project-detail-content {
-  padding-bottom: 40px;
+  padding-bottom: var(--page-vertical-padding);
 }
 
 .project-description {
@@ -725,7 +711,7 @@ main {
 }
 
 .gallery-section {
-  margin-top: 40px;
+  margin-top: var(--page-vertical-padding);
 }
 
 .gallery-header {
@@ -937,6 +923,45 @@ main {
   right: 20px;
 }
 
+/* Initial loader styles (4:3 portrait card, 5s duration) */
+.initial-loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader-viewport {
+  width: min(420px, 80vw);
+  aspect-ratio: 3/4; /* portrait 4:3 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.loader-card {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:20px;
+  box-sizing:border-box;
+}
+.loader-logo span {
+  font-size:16px;
+  letter-spacing:1px;
+  color:#000;
+  text-transform:lowercase;
+}
+/* loader shows static card only (no progress bar) */
+
 .about-content {
   max-width: 800px;
   font-size: 16px;
@@ -1063,24 +1088,20 @@ body.is-home .site-footer {
   }
 
   .folder-shell::before {
-    background:
-      linear-gradient(to right,
-        rgba(0, 0, 0, 0.11) 0%,
-        rgba(0, 0, 0, 0.11) 3%,
-        #ffffff 4%,
-        #ffffff 100%);
+    background: #ffffff;
     border-radius: 12px;
+    box-shadow: none;
   }
 
   .folder-shell-scroll {
-    padding: 16px 18px 24px;
+    padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
     gap: 24px;
   }
 
   .folder-page {
     max-width: 100%;
     margin: 0 auto;
-    padding: 32px 20px 48px;
+    padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
   }
 
   .folder-page::before,
@@ -1101,28 +1122,8 @@ body.is-home .site-footer {
 
   .folder-page--project-detail::before,
   .folder-page--info::before {
-    display: block;
-    left: 12px;
-    right: auto;
-    top: 8%;
-    width: 16px;
-    height: 84%;
-    z-index: 1;
-    background-image:
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
-    background-position:
-      center 10%,
-      center 26%,
-      center 42%,
-      center 58%,
-      center 74%,
-      center 90%;
-    background-size: 16px 16px;
+    display: none;
+    /* decorative holes removed on mobile project/detail pages */
   }
 
   .page-header h1 {
