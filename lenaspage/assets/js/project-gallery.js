@@ -1,10 +1,6 @@
 // Project Gallery - List/Grid Toggle, Lightbox, and Zoom Functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.querySelector('.project-gallery');
-    if (!gallery) return;
-
-    const toggleButtons = document.querySelectorAll('.gallery-toggle');
     const lightboxModal = document.getElementById('lightboxModal');
     const galleryImages = document.querySelectorAll('.gallery-image');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -13,44 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxNext = document.querySelector('.lightbox-next');
     const lightboxImageContainer = document.querySelector('.lightbox-image-container');
 
-    let currentZoom = 1;
-    let currentImageIndex = 0;
-    let isImageLoading = false;
-    const zoomStep = 0.15;
-    const maxZoom = 4;
-    const minZoom = 1;
-
-    // Load gallery view preference from localStorage
-    const savedView = localStorage.getItem('galleryView') || 'grid';
-    setGalleryView(savedView);
-
-    // Toggle view buttons
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const view = this.dataset.view;
-            setGalleryView(view);
-            localStorage.setItem('galleryView', view);
-        });
-    });
-
-    function setGalleryView(view) {
-        gallery.setAttribute('data-gallery-view', view);
-        document.querySelectorAll('.gallery-toggle').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.querySelector(`[data-view="${view}"]`).classList.add('active');
-    }
-
-    // Lightbox functionality
-    galleryImages.forEach((img, index) => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            currentImageIndex = index;
-            openLightbox(index);
-        });
-    });
 
     function openLightbox(index) {
         if (index < 0 || index >= galleryImages.length) return;

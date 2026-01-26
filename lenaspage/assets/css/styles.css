@@ -1,167 +1,13 @@
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-15UltTh.woff2') format('woff2');
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-16UltThIt.woff2') format('woff2');
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-25Th.woff2') format('woff2');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-26ThIt.woff2') format('woff2');
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-36XLtIt.woff2') format('woff2');
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-35XLt.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-45Lt.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-46LtIt.woff2') format('woff2');
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-55Rg.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-56It.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-65Md.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-66MdIt.woff2') format('woff2');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-75Bd.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-76BdIt.woff2') format('woff2');
-  font-weight: bold;
-  font-style: italic;
-}
-
- @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-95Blk.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('NHaasGroteskDSPro-96BlkIt.woff2') format('woff2');
-  font-weight: 900;
-  font-style: italic;
-} 
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-55Rg.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-56It.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-65Md.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-66MdIt.woff2') format('woff2');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-75Bd.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk Text';
-  src: url('NHaasGroteskTXPro-76BdIt.woff2') format('woff2');
-  font-weight: bold;
-  font-style: italic;
-}
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap');
 
 :root {
-  --font-family: 'Neue Haas Grotesk Text', sans-serif;
+  --font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-weight-thin: 100;
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --page-vertical-padding: 32px;
-  --page-horizontal-padding: 24px;
 }
 
 * {
@@ -221,10 +67,10 @@ a:hover {
   padding: 8px 0 4px;
   position: sticky;
   top: 0;
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+   z-index: 2;
 }
 
 body.is-home .header-container {
@@ -302,15 +148,8 @@ nav a.active {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 12px;
-  background:
-    linear-gradient(to right,
-      #ffffff 0%,
-      #ffffff 49.4%,
-      rgba(0, 0, 0, 0.06) 50%,
-      #ffffff 50.6%,
-      #ffffff 100%);
-  box-shadow: none;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   z-index: 0;
 }
 
@@ -318,67 +157,29 @@ nav a.active {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 12px;
   pointer-events: none;
-  /* Sits above content; actual holes only shown on home */
   z-index: 2;
+  background: transparent;
 }
 
-/* On the home/project grid view (after overlay is closed), draw two
-  vertical rows of holes around the center fold, above the grid but
-  below the header/footer */
-body.is-home.folder-opened .folder-shell::after {
-  background-image:
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-    radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
-  background-repeat: no-repeat;
-  background-position:
-    48% 10%,
-    48% 26%,
-    48% 42%,
-    48% 58%,
-    48% 74%,
-    48% 90%,
-    52% 10%,
-    52% 26%,
-    52% 42%,
-    52% 58%,
-    52% 74%,
-    52% 90%;
-  background-size: 16px 16px;
-}
 
 .folder-shell-scroll {
   position: relative;
   z-index: 1;
   height: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 40px 32px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-body.is-home .folder-shell-scroll {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--page-vertical-padding) 0 var(--page-vertical-padding);
+  padding: 24px 0 40px;
   position: relative;
   z-index: 0;
   flex: 1 0 auto;
@@ -388,24 +189,16 @@ main {
   position: relative;
   max-width: 80vw;
   margin: 0 auto;
-  padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
-  background: #ffffff;
+  padding: 24px 24px 64px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .folder-page::before,
 .folder-page::after {
-  content: "";
-  position: absolute;
-  inset: 8px -18px -10px -14px;
-  background: #ffffff;
-  border-radius: 3px;
-  z-index: -2;
-}
-
-.folder-page::after {
-  inset: 18px -26px -20px 4px;
-  background: #ffffff;
-  transform: rotate(-1.5deg);
+  content: none;
 }
 
 .folder-page--projects {
@@ -421,26 +214,17 @@ main {
 .folder-page--project-detail,
 .folder-page--info {
   transform: none;
-  transform-origin: unset;
-  width: 100%;
-  max-width: 1100px;
-  aspect-ratio: unset;
+  transform-origin: center top;
+  width: min(72vw, 1100px);
+  aspect-ratio: auto;
   max-height: none;
   overflow: visible;
   box-shadow: none;
 }
 
 .folder-page--project-detail::before,
-.folder-page--project-detail::after,
-.folder-page--info::before,
-.folder-page--info::after {
-  display: none !important;
-}
-
-/* Remove decorative holes on project/detail pages */
-.folder-page--project-detail::before,
 .folder-page--info::before {
-  background-image: none;
+  content: none;
 }
 
 .folder-page--project-detail::after,
@@ -448,7 +232,6 @@ main {
   display: none;
 }
 
-/* Page Header */
 .page-header {
   margin-bottom: 60px;
 }
@@ -688,7 +471,7 @@ main {
 }
 
 .project-detail-image {
-  margin-bottom: var(--page-vertical-padding);
+  margin-bottom: 40px;
   overflow: hidden;
   aspect-ratio: 16/10;
   background: #f0f0f0;
@@ -701,7 +484,7 @@ main {
 }
 
 .project-detail-content {
-  padding-bottom: var(--page-vertical-padding);
+  padding-bottom: 40px;
 }
 
 .project-description {
@@ -711,7 +494,7 @@ main {
 }
 
 .gallery-section {
-  margin-top: var(--page-vertical-padding);
+  margin-top: 40px;
 }
 
 .gallery-header {
@@ -750,30 +533,14 @@ main {
 
 .project-gallery {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 16px;
-}
-
-.project-gallery[data-gallery-view="grid"] {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-}
-
-.project-gallery[data-gallery-view="list"] {
-  grid-template-columns: 1fr;
-}
-
-.project-gallery[data-gallery-view="list"] .project-gallery-item {
-  max-width: 100%;
-  aspect-ratio: 16 / 10;
 }
 
 .project-gallery-item {
   overflow: hidden;
   background: #f0f0f0;
-  aspect-ratio: 1;
-}
-
-.project-gallery[data-gallery-view="grid"] .project-gallery-item {
   aspect-ratio: 1;
 }
 
@@ -783,11 +550,6 @@ main {
   display: block;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.project-gallery-item img:hover {
-  transform: scale(1.02);
 }
 
 /* Lightbox Modal */
@@ -866,7 +628,6 @@ main {
   justify-content: center;
   transition: all 0.2s;
   z-index: 2001;
-  border-radius: 6px;
 }
 
 .lightbox-close:hover {
@@ -923,45 +684,6 @@ main {
   right: 20px;
 }
 
-/* Initial loader styles (4:3 portrait card, 5s duration) */
-.initial-loader {
-  position: fixed;
-  inset: 0;
-  background: #fff;
-  z-index: 3000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.loader-viewport {
-  width: min(420px, 80vw);
-  aspect-ratio: 3/4; /* portrait 4:3 */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.loader-card {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border: 1px solid #eee;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-  padding:20px;
-  box-sizing:border-box;
-}
-.loader-logo span {
-  font-size:16px;
-  letter-spacing:1px;
-  color:#000;
-  text-transform:lowercase;
-}
-/* loader shows static card only (no progress bar) */
-
 .about-content {
   max-width: 800px;
   font-size: 16px;
@@ -973,6 +695,123 @@ main {
   max-width: 900px;
   line-height: 1.8;
   color: #333;
+}
+
+/* Contact Page */
+.contact-page-wrapper {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.contact-intro {
+  max-width: 640px;
+}
+
+.contact-title {
+  font-size: 32px;
+  font-weight: var(--font-weight-light);
+  text-transform: lowercase;
+  margin-bottom: 16px;
+}
+
+.contact-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.contact-form-wrapper {
+  max-width: 360px;
+}
+
+.contact-message {
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+}
+
+.contact-message--success {
+  background: #e6f6ee;
+  color: #166649;
+  border: 1px solid #b4e0c8;
+}
+
+.contact-message--error {
+  background: #fcebea;
+  color: #9b1c1c;
+  border: 1px solid #f5b5b0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field label {
+  font-size: 12px;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  color: #555;
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-family);
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid #dddddd;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #000;
+  background-color: #ffffff;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-submit {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.contact-submit:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 .error-page {
@@ -1054,6 +893,10 @@ body.is-home .site-footer {
     padding: 4px 0 0;
   }
 
+  .site-footer {
+    padding-bottom: 32px;
+  }
+
   body {
     height: 100vh;
   }
@@ -1067,41 +910,19 @@ body.is-home .site-footer {
     height: 100vh;
   }
 
-  /* Mobile: only one column of holes, to the left of the fold */
-  body.is-home.folder-opened .folder-shell::after {
-    background-image:
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px),
-      radial-gradient(circle, #ffffff 0, #ffffff 5px, rgba(0, 0, 0, 0.16) 7px, transparent 8px);
-    background-repeat: no-repeat;
-    background-position:
-      6% 10%,
-      6% 26%,
-      6% 42%,
-      6% 58%,
-      6% 74%,
-      6% 90%;
-    background-size: 16px 16px;
-  }
-
   .folder-shell::before {
     background: #ffffff;
-    border-radius: 12px;
-    box-shadow: none;
   }
 
   .folder-shell-scroll {
-    padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
+    padding: 16px 18px 24px;
     gap: 24px;
   }
 
   .folder-page {
     max-width: 100%;
     margin: 0 auto;
-    padding: var(--page-vertical-padding) var(--page-horizontal-padding) var(--page-vertical-padding);
+    padding: 32px 20px 48px;
   }
 
   .folder-page::before,
@@ -1111,34 +932,35 @@ body.is-home .site-footer {
 
   .folder-page--project-detail,
   .folder-page--info {
-    transform: rotate(-0.7deg);
+    transform: none;
     transform-origin: center top;
-    width: 86vw;
-    aspect-ratio: 3 / 4;
-    max-height: calc(100vh - 140px);
-    overflow-y: auto;
+    width: 100%;
+    aspect-ratio: auto;
+    max-height: none;
+    overflow-y: visible;
     overflow-x: visible;
   }
 
   .folder-page--project-detail::before,
   .folder-page--info::before {
     display: none;
-    /* decorative holes removed on mobile project/detail pages */
   }
 
   .page-header h1 {
     font-size: 32px;
   }
 
-  .projects-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px 16px;
-    grid-auto-flow: row;
-  }
+ .project-gallery {
+  grid-template-columns: repeat(1, 1fr);
+}
 
   .project-excerpt {
     display: none;
   }
+ 
+.projects-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
 
   .projects-grid .project-image {
     max-width: none;
@@ -1148,22 +970,6 @@ body.is-home .site-footer {
     width: 100%;
     height: auto;
     object-fit: contain;
-  }
-
-  .projects-grid .project-card:nth-child(4n+1) .project-image img {
-    max-height: 220px;
-  }
-
-  .projects-grid .project-card:nth-child(4n+2) .project-image img {
-    max-height: 180px;
-  }
-
-  .projects-grid .project-card:nth-child(4n+3) .project-image img {
-    max-height: 260px;
-  }
-
-  .projects-grid .project-card:nth-child(4n+4) .project-image img {
-    max-height: 200px;
   }
 
   .about-page-wrapper {
@@ -1180,6 +986,15 @@ body.is-home .site-footer {
     position: static;
     right: auto;
     bottom: auto;
+  }
+
+  .contact-page-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-form-wrapper {
+    max-width: 100%;
   }
 
   .project-image {
@@ -1200,11 +1015,6 @@ body.is-home .site-footer {
 
   .contact-info {
     padding: 20px;
-  }
-
-
-  .project-gallery[data-gallery-view="grid"] {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .lightbox-image-container {

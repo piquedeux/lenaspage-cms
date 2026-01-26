@@ -7,7 +7,7 @@
 
   <nav>
     <a href="<?php echo SITE_URL; ?>/about" class="<?php echo $currentPage === 'about' ? 'active' : ''; ?>">info</a>
-    <a href="<?php echo SITE_URL; ?>/timeline" class="<?php echo $currentPage === 'timeline' ? 'active' : ''; ?>">timeline</a>
+    <a href="<?php echo SITE_URL; ?>/contact" class="<?php echo $currentPage === 'contact' ? 'active' : ''; ?>"><?php echo getLanguage() === 'de' ? 'kontakt' : 'contact'; ?></a>
     <div class="language-switcher">
       <?php 
         $currentUri = $_SERVER['REQUEST_URI'];

@@ -26,7 +26,7 @@ function render_project_grid($projects) {
     ?>
     <div class="projects-grid">
         <?php foreach ($displayProjects as $project): ?>
-            <article class="project-card" data-project-id="<?php echo $project['stable_id']; ?>">
+            <article class="project-card" data-project-id="<?php echo $project['stable_id']; ?>" data-gallery='<?php echo json_encode(array_map(function($img) { return SITE_URL . "/assets/projects/" . $img; }, $project["gallery"] ?? [])); ?>'>
                 <a href="<?php echo SITE_URL; ?>/project/<?php echo e($project['slug']); ?>" class="project-link">
                     <?php if (!empty($project['image'])): ?>
                         <div class="project-image">
@@ -86,30 +86,34 @@ switch ($currentPage) {
         $metaDescription = $settings['site_description'];
 
         ob_start(); 
-        if ($showIntro && !isset($_SESSION['seen_loader'])) {
-            $_SESSION['seen_loader'] = true;
-        ?>
-            <div id="initialLoader" class="initial-loader">
-                <div class="loader-backdrop"></div>
-                <div class="loader-viewport">
-                    <div class="loader-card">
-                        <div class="loader-logo">
-                            <span>lena rickenstorf</span>
+        if ($showIntro): ?>
+            <div class="folder-overlay" id="folderOverlay">
+                <div class="folder">
+                    <div class="back-cover"></div>
+                    <div class="front-cover">
+                        <div class="folder-cover-image folder-cover-image--main"></div>
+                        <div class="folder-cover-image folder-cover-image--secondary"></div>
+                        <div class="folder-cover-image folder-cover-image--tertiary"></div>
+                        <div class="folder-cover-label">
+                            <span class="folder-cover-label-main">portfolio</span>
+                            <span class="folder-cover-label-sub">lena rickenstorf</span>
                         </div>
-                        <!-- simple static loader - no progress -->
                     </div>
+                    <?php if (!empty($peekProjects)): ?>
+                        <?php $peekIndex = 0; ?>
+                        <?php foreach ($peekProjects as $peekProject): ?>
+                            <?php
+                                $peekIndex++;
+                                $peekClass = 'folder-peek-image--' . $peekIndex;
+                            ?>
+                            <div class="folder-peek-image <?php echo $peekClass; ?>">
+                                <img src="<?php echo SITE_URL; ?>/assets/projects/<?php echo e($peekProject['image']); ?>" alt="" loading="lazy">
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
-            <script>
-            (function(){
-                // hide loader after 5s and reveal content
-                var loader = document.getElementById('initialLoader');
-                setTimeout(function(){
-                    if (loader) loader.style.display = 'none';
-                }, 5000);
-            })();
-            </script>
-        <?php } ?>
+        <?php endif; ?>
         <?php render_project_grid($projects); ?>
         <?php
         $content = ob_get_clean();
@@ -117,6 +121,7 @@ switch ($currentPage) {
 
     case 'about':
         $pageData = getPage('about') ?: (getPage('home') ?: ['title' => 'About', 'content' => '']);
+        $timeline = getTimeline();
         $metaTitle = 'About - ' . $settings['site_name'];
         $metaDescription = $settings['site_description'];
         ob_start();
@@ -127,6 +132,40 @@ switch ($currentPage) {
                 <div class="about-content">
                     <?php echo nl2br(e(getTranslation($pageData['content'], 'content') ?? '')); ?>
                 </div>
+                <?php if (!empty($timeline)): ?>
+                    <div class="cv-section">
+                        <div class="cv-timeline">
+                            <?php foreach ($timeline as $entry): 
+                                $dateStart = !empty($entry['date_start']) ? date('d.m.Y', strtotime($entry['date_start'])) : '';
+                                $dateEnd = !empty($entry['date_end']) ? date('d.m.Y', strtotime($entry['date_end'])) : '';
+                                $isOngoing = $entry['ongoing'] ?? false;
+                                $ongoingLabel = getLanguage() === 'de' ? 'laufend' : 'ongoing';
+
+                                $dateRange = '';
+                                if ($dateStart && $dateEnd) {
+                                    $dateRange = $dateStart . '–' . $dateEnd;
+                                } elseif ($dateStart && $isOngoing) {
+                                    $dateRange = $dateStart . '–' . $ongoingLabel;
+                                } elseif ($dateEnd) {
+                                    $dateRange = $dateEnd;
+                                } elseif ($dateStart) {
+                                    $dateRange = $dateStart;
+                                } elseif ($isOngoing) {
+                                    $dateRange = $ongoingLabel;
+                                }
+                            ?>
+                                <div class="cv-entry">
+                                    <div class="cv-entry-title"><?php echo e(getTranslation($entry['title'], 'title')); ?></div>
+                                    <?php if ($dateRange): ?>
+                                        <div class="cv-entry-date"><?php echo e($dateRange); ?></div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <p><?php echo getLanguage() === 'de' ? 'Noch keine Einträge in der Timeline.' : 'No timeline entries yet.'; ?></p>
+                <?php endif; ?>
             </div>
             <div class="about-right">
                 <?php if (!empty($settings['social_links'])): ?>
@@ -151,61 +190,124 @@ switch ($currentPage) {
 
     case 'contact':
         $pageData = getPage('contact') ?: ['title' => 'Contact', 'content' => ''];
-        $metaTitle = 'Contact - ' . $settings['site_name'];
+        $metaTitle = (getLanguage() === 'de' ? 'Kontakt' : 'Contact') . ' - ' . $settings['site_name'];
         $metaDescription = $settings['site_description'];
 
-        // Handle form submission
-        $formSuccess = false;
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
-            $hp = trim($_POST['hp'] ?? '');
-            if ($hp === '') {
-                $name = trim($_POST['name'] ?? '');
-                $email = trim($_POST['email'] ?? '');
-                $msg = trim($_POST['message'] ?? '');
+        $contactSuccess = '';
+        $contactError = '';
+        // Basic sanitization to guard against header injection
+        $rawName = $_POST['name'] ?? '';
+        $rawEmail = $_POST['email'] ?? '';
+        $name = trim(str_replace(["\r", "\n"], ' ', $rawName));
+        $email = trim(str_replace(["\r", "\n"], ' ', $rawEmail));
+        $message = trim($_POST['message'] ?? '');
+        $honeypot = trim($_POST['website'] ?? '');
 
-                $entry = [
-                    'date' => date('Y-m-d H:i:s'),
-                    'nameMail' => ($name !== '' ? $name . ' ' : '') . ($email !== '' ? "<{$email}>" : ''),
-                    'msg' => $msg
-                ];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $logFile = CONTENT_DIR . '/contact-log.txt';
 
-                $logFile = CONTENT_DIR . '/contact-log.txt';
-                if (!is_dir(CONTENT_DIR)) mkdir(CONTENT_DIR, 0755, true);
-                file_put_contents($logFile, json_encode($entry, JSON_UNESCAPED_UNICODE) . PHP_EOL, FILE_APPEND | LOCK_EX);
-                $formSuccess = true;
+            // Honeypot: if filled, assume bot and pretend success
+            if ($honeypot !== '') {
+                $contactSuccess = getLanguage() === 'de'
+                    ? 'Danke, deine Nachricht wurde verschickt.'
+                    : 'Thank you, your message has been sent.';
+
+                $logLine = date('c') . ' | IP: ' . ($_SERVER['REMOTE_ADDR'] ?? '-') . ' | ' .
+                    'BOT honeypot | ' . $name . ' <' . $email . "\n";
+                @file_put_contents($logFile, $logLine, FILE_APPEND);
+            } else if ($name === '' || $email === '' || $message === '') {
+                $contactError = getLanguage() === 'de'
+                    ? 'Bitte alle erforderlichen Felder ausfüllen.'
+                    : 'Please fill in all required fields.';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $contactError = getLanguage() === 'de'
+                    ? 'Bitte eine gültige E-Mail-Adresse eingeben.'
+                    : 'Please enter a valid email address.';
             } else {
-                // honeypot filled: treat as spam (silently ignore)
-                $formSuccess = true;
+                // Nur ins Log schreiben, keine Mail versenden
+                $contactSuccess = getLanguage() === 'de'
+                    ? 'Danke, deine Nachricht wurde verschickt.'
+                    : 'Thank you, your message has been sent.';
+
+                $logLine = date('c') . ' | IP: ' . ($_SERVER['REMOTE_ADDR'] ?? '-') . ' | ' .
+                    $name . ' <' . $email . '> | status=logged | ' .
+                    str_replace(["\r", "\n"], ' ', substr($message, 0, 500)) . "\n";
+                @file_put_contents($logFile, $logLine, FILE_APPEND);
+                // Clear form fields on success
+                $name = '';
+                $email = '';
+                $message = '';
             }
         }
 
         ob_start();
         ?>
         <div class="folder-page folder-page--info">
-            <div class="contact-page">
-                <h1><?php echo e(getTranslation($pageData['title'], 'title')); ?></h1>
-                <div class="about-content">
-                    <?php echo nl2br(e(getTranslation($pageData['content'], 'content') ?? '')); ?>
+            <div class="contact-page-wrapper">
+                <div class="contact-intro">
+                    <h1 class="contact-title"><?php echo e(getTranslation($pageData['title'], 'title') ?: (getLanguage() === 'de' ? 'Kontakt' : 'Contact')); ?></h1>
+                    <div class="contact-text">
+                        <?php echo nl2br(e(getTranslation($pageData['content'], 'content') ?? '')); ?>
+                    </div>
                 </div>
+                <div class="contact-form-wrapper">
+                    <?php if ($contactSuccess): ?>
+                        <div class="contact-message contact-message--success"><?php echo e($contactSuccess); ?></div>
+                    <?php endif; ?>
+                    <?php if ($contactError): ?>
+                        <div class="contact-message contact-message--error"><?php echo e($contactError); ?></div>
+                    <?php endif; ?>
 
-                <?php if ($formSuccess): ?>
-                    <p>Vielen Dank! Deine Nachricht wurde empfangen.</p>
-                <?php else: ?>
-                    <form method="POST">
-                        <input type="hidden" name="contact_submit" value="1">
-                        <div style="display:none;"> <!-- honeypot -->
-                            <label>Leave this empty</label>
-                            <input type="text" name="hp" value="">
+                    <form class="contact-form" method="post" action="<?php echo SITE_URL; ?>/contact">
+                        <div class="contact-hp">
+                            <label for="contact-website">Website</label>
+                            <input
+                                type="text"
+                                id="contact-website"
+                                name="website"
+                                autocomplete="off"
+                                tabindex="-1"
+                            >
                         </div>
-                        <label>Name</label>
-                        <input type="text" name="name" required>
-                        <label>E-Mail</label>
-                        <input type="email" name="email" required>
-                        <label>Nachricht</label>
-                        <textarea name="message" rows="6" required></textarea>
-                        <button type="submit">Absenden</button>
+                        <div class="form-field">
+                            <label for="contact-name"><?php echo getLanguage() === 'de' ? 'Name' : 'Name'; ?></label>
+                            <input
+                                type="text"
+                                id="contact-name"
+                                name="name"
+                                required
+                                value="<?php echo e($name); ?>"
+                                autocomplete="name"
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="contact-email"><?php echo getLanguage() === 'de' ? 'E-Mail' : 'Email'; ?></label>
+                            <input
+                                type="email"
+                                id="contact-email"
+                                name="email"
+                                required
+                                value="<?php echo e($email); ?>"
+                                autocomplete="email"
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="contact-message"><?php echo getLanguage() === 'de' ? 'Nachricht' : 'Message'; ?></label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                rows="5"
+                                required
+                            ><?php echo e($message); ?></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-submit">
+                            <?php echo getLanguage() === 'de' ? 'Nachricht senden' : 'Send message'; ?>
+                        </button>
                     </form>
-                <?php endif; ?>
+                </div>
             </div>
         </div>
         <?php
@@ -213,50 +315,9 @@ switch ($currentPage) {
         break;
 
     case 'timeline':
-        $timeline = getTimeline();
-        $metaTitle = 'Timeline - ' . $settings['site_name'];
-        $metaDescription = $settings['site_description'];
-        ob_start();
-        ?>
-        <div class="folder-page folder-page--info">
-            <?php if (!empty($timeline)): ?>
-                <div class="cv-section">
-                    <div class="cv-timeline">
-                        <?php foreach ($timeline as $entry): 
-                            $dateStart = !empty($entry['date_start']) ? date('d.m.Y', strtotime($entry['date_start'])) : '';
-                            $dateEnd = !empty($entry['date_end']) ? date('d.m.Y', strtotime($entry['date_end'])) : '';
-                            $isOngoing = $entry['ongoing'] ?? false;
-                            $ongoingLabel = getLanguage() === 'de' ? 'laufend' : 'ongoing';
-
-                            $dateRange = '';
-                            if ($dateStart && $dateEnd) {
-                                $dateRange = $dateStart . '–' . $dateEnd;
-                            } elseif ($dateStart && $isOngoing) {
-                                $dateRange = $dateStart . '–' . $ongoingLabel;
-                            } elseif ($dateEnd) {
-                                $dateRange = $dateEnd;
-                            } elseif ($dateStart) {
-                                $dateRange = $dateStart;
-                            } elseif ($isOngoing) {
-                                $dateRange = $ongoingLabel;
-                            }
-                        ?>
-                            <div class="cv-entry">
-                                <div class="cv-entry-title"><?php echo e(getTranslation($entry['title'], 'title')); ?></div>
-                                <?php if ($dateRange): ?>
-                                    <div class="cv-entry-date"><?php echo e($dateRange); ?></div>
-                                <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php else: ?>
-                <p><?php echo getLanguage() === 'de' ? 'Noch keine Einträge in der Timeline.' : 'No timeline entries yet.'; ?></p>
-            <?php endif; ?>
-        </div>
-        <?php
-        $content = ob_get_clean();
-        break;
+        // Keep old /timeline URLs working, but show content on the info page
+        header('Location: ' . SITE_URL . '/about');
+        exit;
 
     case 'imprint':
         $metaTitle = (getLanguage() === 'de' ? 'Impressum' : 'Imprint') . ' - ' . $settings['site_name'];
@@ -327,10 +388,18 @@ switch ($currentPage) {
 
                     <?php if (!empty($project['gallery'])): ?>
                         <div class="gallery-section">
-                            <div class="gallery-controls">
-                                <button class="gallery-toggle active" data-view="grid">grid</button>
-                                <button class="gallery-toggle" data-view="list">list</button>
-                            </div>
+                            <?php 
+                            $galleryName = '';
+                            if (isset($project['gallery_name']) && is_array($project['gallery_name'])) {
+                                $lang = getLanguage();
+                                $galleryName = trim($project['gallery_name'][$lang] ?? '');
+                            }
+                            ?>
+                            <?php if ($galleryName): ?>
+                                <div class="gallery-title" style="font-weight:600;font-size:1.1em;margin-bottom:8px;">
+                                    <?php echo e($galleryName); ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="project-gallery gallery-grid">
                                 <?php foreach ($project['gallery'] as $img): ?>
                                     <div class="project-gallery-item">

@@ -8,6 +8,8 @@ if (!empty($currentPage)) {
         $pageLabel = getLanguage() === 'de' ? 'projekte' : 'projects';
     } elseif ($currentPage === 'about') {
         $pageLabel = 'info';
+    } elseif ($currentPage === 'contact') {
+      $pageLabel = getLanguage() === 'de' ? 'kontakt' : 'contact';
     } elseif ($currentPage === 'imprint') {
         $pageLabel = getLanguage() === 'de' ? 'impressum' : 'imprint';
     } else {
@@ -24,5 +26,7 @@ if (!empty($currentPage)) {
 
   <div class="footer-right">
     <a class="email-link" href="mailto:<?php echo e($settings['email']); ?>"><?php echo e($settings['email']); ?></a>
+    <span> / </span>
+    <a class="ig-link" href="https://instagram.com/lena.rcnt" target="_blank" rel="noopener">ig</a>
   </div>
 </footer>

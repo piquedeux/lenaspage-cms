@@ -78,6 +78,7 @@ moritzgauss.com
     </div>
 
     <script src="<?php echo SITE_URL; ?>/assets/js/project-gallery.js"></script>
+    <script src="<?php echo SITE_URL; ?>/assets/js/project-thumbnail-gallery.js"></script>
     <script src="<?php echo SITE_URL; ?>/assets/js/folder-overlay.js"></script>
 </body>
 </html>
