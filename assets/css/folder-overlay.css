@@ -1,0 +1,139 @@
+body:has(.folder-overlay.is-active:not(.finished)),
+body.folder-overlay-active {
+  overflow: hidden;
+  touch-action: none;
+}
+
+body:has(.folder-overlay.is-active:not(.finished)) .header-container,
+body:has(.folder-overlay.is-active:not(.finished)) .site-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.folder-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.folder-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.folder-overlay-inner {
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.folder-overlay-title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.folder-overlay-images {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  padding-right: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.folder-overlay-images img {
+  height: 50vh;
+  max-height: 50vh;
+  width: calc((100% - 24px) / 3);
+  max-width: calc((100% - 24px) / 3);
+  min-width: calc((100% - 24px) / 3);
+  object-fit: cover;
+  display: block;
+}
+
+.folder-overlay-nav {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.folder-overlay-link {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.folder-overlay.finished {
+  display: none !important;
+}
+
+.folder-overlay.fade-out {
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .folder-overlay-title {
+    font-size: 2.2rem;
+  }
+
+  .folder-overlay-images {
+    gap: 8px;
+  }
+
+  .folder-overlay-images img {
+    max-width: calc((100vw - 48px) / 3);
+  }
+}
+
+@media (max-width: 680px) {
+  .folder-overlay-inner {
+    justify-content: flex-start;
+    padding-top: calc(16px + clamp(52px, 6vh, 72px));
+    padding-bottom: 16px;
+  }
+
+  .folder-overlay-images {
+    gap: 8px;
+    padding-right: 10px;
+  }
+
+  .folder-overlay-images img {
+    height: 32vh;
+    max-height: 50vh;
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
+    min-width: calc((100% - 16px) / 3);
+  }
+}
+
+@media (max-width: 700px) {
+  .folder-overlay-title {
+    top: 8px;
+    left: 10px;
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,764 @@
+[
+    {
+        "title": {
+            "de": "Shift 1",
+            "en": ""
+        },
+        "credits": {
+            "de": [
+                "Zuakajjajaajaj"
+            ],
+            "en": []
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "Hhddhkl",
+            "en": ""
+        },
+        "year": "2023",
+        "image": "1769894603_Unbenanntes_Projekt.PNG",
+        "galleries": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "images": [
+                    {
+                        "file": "1769894779_697e737b9a923_P1080121.JPG",
+                        "caption": "hey"
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "images": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "images": []
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Dolcefarniente",
+            "en": ""
+        },
+        "credits": {
+            "0": {
+                "name": {
+                    "de": "Henrik Hinzen",
+                    "en": "Lena Rickenstorf"
+                },
+                "role": {
+                    "de": "Performance und Konzeption",
+                    "en": "Gestaltung und Konzeption"
+                }
+            },
+            "de": [
+                "<br \/>",
+                "<b>Warning<\/b>:  Array to string conversion in <b>\/Users\/moritzgauss\/Desktop\/Lokale\/fck\/lenaspage2\/admin.php<\/b> on line <b>791<\/b><br \/>",
+                "Array"
+            ],
+            "en": [
+                "<br \/>",
+                "<b>Warning<\/b>:  Array to string conversion in <b>\/Users\/moritzgauss\/Desktop\/Lokale\/fck\/lenaspage2\/admin.php<\/b> on line <b>811<\/b><br \/>",
+                "Array"
+            ]
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": [
+                    {
+                        "name": {
+                            "de": "Henrik Hinzen",
+                            "en": "Lena Rickenstorf"
+                        },
+                        "role": {
+                            "de": "Performance und Konzeption",
+                            "en": "Gestaltung und Konzeption"
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "hallo",
+            "en": "hey"
+        },
+        "year": "2024",
+        "image": "1769881798_Unbenanntes_Projekt.jpg",
+        "galleries": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "type": "regular",
+                "images": [
+                    {
+                        "file": "1769881798_697e40c6212ae_IMG_9231.jpeg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769881798_697e40c622eff_IMG_9236.jpeg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769881798_697e40c621c32_Unbenanntes_Projekt.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Ergo Sum",
+            "en": ""
+        },
+        "credits": {
+            "de": [],
+            "en": []
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "ergo ergo hsbdjabjdbjas. shjahdkjsa bdhasbdjhajhds ghdjhasghdhjadsj bdhjasdjas. dugwqidhiquwhdiuwhds",
+            "en": ""
+        },
+        "year": "2023",
+        "image": "1769553879_IMG_0569.JPG",
+        "galleries": [
+            {
+                "title": {
+                    "de": "Prozess",
+                    "en": "Process"
+                },
+                "images": [
+                    {
+                        "file": "1769553879_69793fd728ffb_IMG_0575.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd727357_IMG_0573.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd727f01_IMG_0574.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "Performance",
+                    "en": ""
+                },
+                "images": [
+                    {
+                        "file": "1769553879_69793fd729c24_Cogito_Performance_high res (7 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd72cf3e_Cogito_Performance_high res (18 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd72ecbd_Cogito_Performance_high res (26 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd72acb8_Cogito_Performance_high res (8 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd72bb3d_Cogito_Performance_high res (9 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd72e128_Cogito_Performance_high res (20 von 33).jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553879_69793fd73024f_Cogito_Performance_high res (27 von 33).JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "images": []
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Rittersweet",
+            "en": ""
+        },
+        "credits": {
+            "de": [],
+            "en": []
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "",
+            "en": ""
+        },
+        "year": "2024",
+        "image": "1769553789__DSC7686_web.jpg",
+        "galleries": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "type": "scrollable",
+                "images": [
+                    {
+                        "file": "1769553789_69793f7d0de61__DSC7705_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d0e999__DSC7710_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d0f148__DSC7715_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d0faac__DSC7722_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d10912__DSC7753_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d11695__DSC7768_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d11ff3__DSC7849_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d127e8__DSC7857_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d13001__DSC7861_web.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769553789_69793f7d139a3__DSC7879_web.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Sandmann",
+            "en": ""
+        },
+        "credits": [],
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "",
+            "en": ""
+        },
+        "year": "2024",
+        "image": "1769894259_IMG_4472.jpeg",
+        "galleries": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "images": [
+                    {
+                        "file": "1769553706_69793f2a11ada_IMG_5957.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553706_69793f2a13bbe_IMG_5976.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553706_69793f2a24e70_IMG_9742.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769553706_69793f2a16652_IMG_9543.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769893732_697e6f6454fd9_IMG_3225.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Alice",
+            "en": ""
+        },
+        "credits": [
+            {
+                "name": {
+                    "de": "",
+                    "en": ""
+                },
+                "role": {
+                    "de": "",
+                    "en": ""
+                }
+            }
+        ],
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": [
+                    {
+                        "name": {
+                            "de": "",
+                            "en": ""
+                        },
+                        "role": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "",
+            "en": ""
+        },
+        "year": "2025",
+        "image": "1769542341_IMG_4391.JPG",
+        "galleries": [
+            {
+                "title": {
+                    "de": "Prozess",
+                    "en": "Process"
+                },
+                "images": [
+                    {
+                        "file": "1769542341_697912c54c4bf_IMG_4391.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769542341_697912c54d1b1_IMG_4390.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769542341_697912c54e212_IMG_4389.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769542341_697912c54f154_IMG_4388.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "Auf der Bühne",
+                    "en": "On Stage"
+                },
+                "images": [
+                    {
+                        "file": "1769544378_69791aba12a90_IMG_2713.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769544378_69791aba13b10_IMG_2696.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769544378_69791aba14d97_IMG_2687.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769544378_69791aba15e0b_IMG_2638.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769544378_69791aba17090_IMG_2627.JPG",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    },
+                    {
+                        "file": "1769544378_69791aba1823d_IMG_2619.jpg",
+                        "caption": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": {
+            "de": "Heidi",
+            "en": ""
+        },
+        "credits": {
+            "0": {
+                "name": {
+                    "de": "",
+                    "en": ""
+                },
+                "role": {
+                    "de": "",
+                    "en": ""
+                }
+            },
+            "de": [
+                "Array"
+            ],
+            "en": [
+                "Array"
+            ]
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": [
+                    {
+                        "name": {
+                            "de": "",
+                            "en": ""
+                        },
+                        "role": {
+                            "de": "",
+                            "en": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "",
+            "en": ""
+        },
+        "year": "2025",
+        "image": "1769895278_THEATER-NEUMARKT_Heidi_Foto-Philip-Frowein_Web_19.jpg",
+        "galleries": [
+            {
+                "title": {
+                    "de": "Fitting",
+                    "en": ""
+                },
+                "type": "scrollable",
+                "images": [
+                    {
+                        "file": "1769900816_697e8b106ca08_IMG_4351.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900816_697e8b10af7a0_IMG_4352.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900816_697e8b10ac5ee_IMG_4353.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900816_697e8b10adcd4_IMG_4354.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900816_697e8b10aad87_IMG_4355.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900816_697e8b10a933e_IMG_4356.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900821_697e8b15b87cb_IMG_4371.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900822_697e8b1623f66_IMG_4374.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900822_697e8b1641979_IMG_4375.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900818_697e8b125966d_IMG_7875.JPG",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900822_697e8b161b7ed_THEATER-NEUMARKT_Heidi_Kostuem_Druck_27.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900817_697e8b11426ad_THEATER-NEUMARKT_Heidi_Foto-Philip-Frowein_Web_04.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900817_697e8b11da4f6_THEATER-NEUMARKT_Heidi_Foto-Philip-Frowein_Web_07.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900818_697e8b125e502_THEATER-NEUMARKT_Heidi_Foto-Philip-Frowein_Web_14.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900819_697e8b136e91d_THEATER-NEUMARKT_Heidi_Foto-Philip-Frowein_Web_18.jpg",
+                        "caption": ""
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "Auf der Bühne",
+                    "en": "On Stage"
+                },
+                "type": "regular",
+                "images": [
+                    {
+                        "file": "1769900876_697e8b4c18ff6_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Druck_072.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900870_697e8b46b4776_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_005.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900870_697e8b468e41f_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_006.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900871_697e8b4700fa7_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_007.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900870_697e8b4636016_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_009.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900870_697e8b469c622_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_011.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900871_697e8b47c4e87_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_012.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900872_697e8b4807800_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_015.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900872_697e8b48d4c87_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_022.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900873_697e8b493400f_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_030.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900873_697e8b499ade0_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_031.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900873_697e8b496e2f8_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_032.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900874_697e8b4a36cc9_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_033.jpg",
+                        "caption": ""
+                    },
+                    {
+                        "file": "1769900874_697e8b4a4f13e_THEATER-FREIBURG_Heidi_Foto-Philip-Frowein_Web_038.jpg",
+                        "caption": ""
+                    }
+                ]
+            }
+        ]
+    }
+]
