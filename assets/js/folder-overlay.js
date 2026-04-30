@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.querySelector('.folder-overlay');
   const folder = document.querySelector('.folder');
+  const headerLogo = document.querySelector('.header-container .site-logo');
+  const overlayHomeTrigger = document.querySelector('[data-overlay-home]');
 
   if (!overlay) return;
 
-  // Use sessionStorage so the overlay only appears once
-  // per browser session (will show again after closing
-  // the browser or tab), instead of a persistent cookie.
-  const hasSeenThisSession = sessionStorage.getItem('hasSeenFolder') === '1';
+  const shouldSkipOverlay = sessionStorage.getItem('skipFolderOverlayOnce') === '1';
 
-  if (hasSeenThisSession) {
+  if (shouldSkipOverlay) {
+    sessionStorage.removeItem('skipFolderOverlayOnce');
     document.body.classList.add('folder-opened');
     overlay.classList.add('finished');
     return;
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeOverlay = () => {
     if (didClose) return;
     didClose = true;
-    sessionStorage.setItem('hasSeenFolder', '1');
     overlay.classList.add('fade-out');
 
     setTimeout(() => {
@@ -35,8 +34,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   };
 
-  // Close when clicking anywhere in the overlay.
-  overlay.addEventListener('click', closeOverlay);
+  if (headerLogo) {
+    headerLogo.addEventListener('click', () => {
+      sessionStorage.setItem('skipFolderOverlayOnce', '1');
+    });
+  }
+
+  // Close when clicking on open overlay space, but let links/buttons handle their own action.
+  overlay.addEventListener('click', (event) => {
+    if (event.target.closest('a, button')) return;
+    closeOverlay();
+  });
+
+  if (overlayHomeTrigger) {
+    overlayHomeTrigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeOverlay();
+    });
+  }
 
   // Keep compatibility with old markup that used a .folder element.
   if (folder) {

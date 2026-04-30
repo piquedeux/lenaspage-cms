@@ -5,8 +5,7 @@
 | |\/| |    | |(  | 
 | |  | |  _ | |_) |  _ 
 (_)  (_) (_) \____| (_)
-© 2025
-moritzgauss.com 
+© moritzgauss.com 
 --> 
 <!DOCTYPE html>
 <html lang="en">

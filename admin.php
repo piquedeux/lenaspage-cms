@@ -239,6 +239,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    /* MOVE PROJECT UP */
+    if (isset($_POST['move_project_up'])) {
+        $idx = (int)$_POST['move_project_up'];
+        $projects = getProjects();
+        if ($idx > 0 && $idx < count($projects)) {
+            [$projects[$idx], $projects[$idx - 1]] = [$projects[$idx - 1], $projects[$idx]];
+            saveProjects($projects);
+        }
+        header('Location: ' . SITE_URL . '/admin.php?page=projects&active=' . max(0, $idx - 1));
+        exit;
+    }
+
+    /* MOVE PROJECT DOWN */
+    if (isset($_POST['move_project_down'])) {
+        $idx = (int)$_POST['move_project_down'];
+        $projects = getProjects();
+        if ($idx >= 0 && $idx < count($projects) - 1) {
+            [$projects[$idx], $projects[$idx + 1]] = [$projects[$idx + 1], $projects[$idx]];
+            saveProjects($projects);
+        }
+        header('Location: ' . SITE_URL . '/admin.php?page=projects&active=' . min(count($projects) - 1, $idx + 1));
+        exit;
+    }
+
     /* SAVE SETTINGS */
     if (isset($_POST['save_settings']) && isset($_POST['settings'])) {
         $settingsFile = CONTENT_DIR . '/settings.json';
@@ -771,6 +795,12 @@ $timeline = getTimeline();
                     <div class="project-actions">
                         <button type="submit" name="delete_project" value="<?php echo $i; ?>" class="btn-danger"><span class="material-icons" style="vertical-align:middle;">delete</span> Löschen</button>
                         <button type="submit" name="save_project" value="<?php echo $i; ?>" class="btn" style="margin-left:8px;">Dieses Projekt speichern</button>
+                        <?php if ($i > 0): ?>
+                            <button type="submit" name="move_project_up" value="<?php echo $i; ?>" class="btn" style="margin-left:8px;" title="Projekt nach oben">↑</button>
+                        <?php endif; ?>
+                        <?php if ($i < count($projects) - 1): ?>
+                            <button type="submit" name="move_project_down" value="<?php echo $i; ?>" class="btn" style="margin-left:4px;" title="Projekt nach unten">↓</button>
+                        <?php endif; ?>
                     </div>
                     
                     <div class="lang-toggle">

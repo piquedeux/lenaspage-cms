@@ -1,68 +1,6 @@
 [
     {
         "title": {
-            "de": "Shift 1",
-            "en": ""
-        },
-        "credits": {
-            "de": [
-                "Zuakajjajaajaj"
-            ],
-            "en": []
-        },
-        "credit_groups": [
-            {
-                "title": {
-                    "de": "",
-                    "en": ""
-                },
-                "items": []
-            },
-            {
-                "title": {
-                    "de": "",
-                    "en": ""
-                },
-                "items": []
-            }
-        ],
-        "description": {
-            "de": "Hhddhkl",
-            "en": ""
-        },
-        "year": "2023",
-        "image": "1769894603_Unbenanntes_Projekt.PNG",
-        "galleries": [
-            {
-                "title": {
-                    "de": "",
-                    "en": ""
-                },
-                "images": [
-                    {
-                        "file": "1769894779_697e737b9a923_P1080121.JPG",
-                        "caption": "hey"
-                    }
-                ]
-            },
-            {
-                "title": {
-                    "de": "",
-                    "en": ""
-                },
-                "images": []
-            },
-            {
-                "title": {
-                    "de": "",
-                    "en": ""
-                },
-                "images": []
-            }
-        ]
-    },
-    {
-        "title": {
             "de": "Dolcefarniente",
             "en": ""
         },
@@ -77,16 +15,8 @@
                     "en": "Gestaltung und Konzeption"
                 }
             },
-            "de": [
-                "<br \/>",
-                "<b>Warning<\/b>:  Array to string conversion in <b>\/Users\/moritzgauss\/Desktop\/Lokale\/fck\/lenaspage2\/admin.php<\/b> on line <b>791<\/b><br \/>",
-                "Array"
-            ],
-            "en": [
-                "<br \/>",
-                "<b>Warning<\/b>:  Array to string conversion in <b>\/Users\/moritzgauss\/Desktop\/Lokale\/fck\/lenaspage2\/admin.php<\/b> on line <b>811<\/b><br \/>",
-                "Array"
-            ]
+            "de": [],
+            "en": []
         },
         "credit_groups": [
             {
@@ -116,8 +46,8 @@
             }
         ],
         "description": {
-            "de": "hallo",
-            "en": "hey"
+            "de": "",
+            "en": ""
         },
         "year": "2024",
         "image": "1769881798_Unbenanntes_Projekt.jpg",
@@ -147,6 +77,71 @@
     },
     {
         "title": {
+            "de": "Shift 1",
+            "en": ""
+        },
+        "credits": {
+            "de": [
+                "Lol"
+            ],
+            "en": []
+        },
+        "credit_groups": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "items": []
+            }
+        ],
+        "description": {
+            "de": "",
+            "en": ""
+        },
+        "year": "2023",
+        "image": "1769894603_Unbenanntes_Projekt.PNG",
+        "galleries": [
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "type": "regular",
+                "images": [
+                    {
+                        "file": "1769894779_697e737b9a923_P1080121.JPG",
+                        "caption": "hey"
+                    }
+                ]
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "type": "regular",
+                "images": []
+            },
+            {
+                "title": {
+                    "de": "",
+                    "en": ""
+                },
+                "type": "regular",
+                "images": []
+            }
+        ]
+    },
+    {
+        "title": {
             "de": "Ergo Sum",
             "en": ""
         },
@@ -171,7 +166,7 @@
             }
         ],
         "description": {
-            "de": "ergo ergo hsbdjabjdbjas. shjahdkjsa bdhasbdjhajhds ghdjhasghdhjadsj bdhjasdjas. dugwqidhiquwhdiuwhds",
+            "de": "",
             "en": ""
         },
         "year": "2023",
@@ -182,27 +177,19 @@
                     "de": "Prozess",
                     "en": "Process"
                 },
+                "type": "regular",
                 "images": [
                     {
                         "file": "1769553879_69793fd728ffb_IMG_0575.JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd727357_IMG_0573.jpg",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd727f01_IMG_0574.JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     }
                 ]
             },
@@ -211,55 +198,35 @@
                     "de": "Performance",
                     "en": ""
                 },
+                "type": "regular",
                 "images": [
                     {
                         "file": "1769553879_69793fd729c24_Cogito_Performance_high res (7 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd72cf3e_Cogito_Performance_high res (18 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd72ecbd_Cogito_Performance_high res (26 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd72acb8_Cogito_Performance_high res (8 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd72bb3d_Cogito_Performance_high res (9 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd72e128_Cogito_Performance_high res (20 von 33).jpg",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     },
                     {
                         "file": "1769553879_69793fd73024f_Cogito_Performance_high res (27 von 33).JPG",
-                        "caption": {
-                            "de": "",
-                            "en": ""
-                        }
+                        "caption": ""
                     }
                 ]
             },
@@ -268,6 +235,7 @@
                     "de": "",
                     "en": ""
                 },
+                "type": "regular",
                 "images": []
             }
         ]

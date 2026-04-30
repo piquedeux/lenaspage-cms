@@ -22,18 +22,7 @@ function render_project_grid($projects) {
         $displayProjects[] = $project;
     }
     
-    // On first visit show newest projects first; afterwards keep shuffle behaviour.
-    if (!isset($_COOKIE['projects_seen'])) {
-        usort($displayProjects, function($a, $b){
-            $ay = intval($a['year'] ?? 0);
-            $by = intval($b['year'] ?? 0);
-            return $by <=> $ay; // newest first
-        });
-        // set a cookie so subsequent loads shuffle instead
-        setcookie('projects_seen', '1', time() + 60*60*24*30, '/');
-    } else {
-        shuffle($displayProjects);
-    }
+    // Reihenfolge aus projects.json wird beibehalten (admin sortiert über ↑↓)
     ?>
     <div class="projects-grid">
         <?php foreach ($displayProjects as $project): ?>
@@ -114,7 +103,6 @@ switch ($currentPage) {
         $projects = getProjects();
         $folderImages = [
             '42ba7c8e-aa2c-4e3c-b0e6-2d91fdb7ca4f.jpeg',
-            'e6776324-8285-4f1c-a314-53c962a31c75.jpeg',
             'f08775fc-d349-4e54-8281-3026d635d0be.jpeg',
         ];
         $metaTitle = $settings['site_name'];
@@ -125,7 +113,7 @@ switch ($currentPage) {
         if ($showIntro): ?>
             <div class="folder-overlay" id="folderOverlay">
                 <div class="folder-overlay-inner">
-                    <h1 class="folder-overlay-title"><?php echo strtoupper(e($settings['site_name'])); ?></h1>
+                    <a class="folder-overlay-title" href="<?php echo SITE_URL; ?>/" data-overlay-home><?php echo strtoupper(e($settings['site_name'])); ?></a>
 
                     <?php if (!empty($folderImages)): ?>
                         <div class="folder-overlay-images">
@@ -142,7 +130,6 @@ switch ($currentPage) {
                     <?php endif; ?>
 
                     <nav class="folder-overlay-nav" aria-label="Intro navigation">
-                        <a class="folder-overlay-link" href="<?php echo SITE_URL; ?>/">home</a>
                         <a class="folder-overlay-link" href="<?php echo SITE_URL; ?>/about">info</a>
                         <a class="folder-overlay-link" href="<?php echo SITE_URL; ?>/contact"><?php echo getLanguage() === 'de' ? 'kontakt' : 'contact'; ?></a>
                     </nav>

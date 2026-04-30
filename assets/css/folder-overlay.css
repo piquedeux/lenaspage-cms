@@ -43,11 +43,14 @@ body:has(.folder-overlay.is-active:not(.finished)) .site-footer {
   position: absolute;
   top: 16px;
   left: 16px;
+  color: inherit;
+  text-decoration: none;
   font-size: 3rem;
   font-weight: 400;
   letter-spacing: -0.02rem;
   text-transform: uppercase;
   line-height: 1;
+  cursor: pointer;
 }
 
 .folder-overlay-images {
@@ -64,9 +67,9 @@ body:has(.folder-overlay.is-active:not(.finished)) .site-footer {
 .folder-overlay-images img {
   height: 50vh;
   max-height: 50vh;
-  width: calc((100% - 24px) / 3);
-  max-width: calc((100% - 24px) / 3);
-  min-width: calc((100% - 24px) / 3);
+  width: calc((100% - 12px) / 2);
+  max-width: calc((100% - 12px) / 2);
+  min-width: calc((100% - 12px) / 2);
   object-fit: cover;
   display: block;
 }
@@ -105,7 +108,7 @@ body:has(.folder-overlay.is-active:not(.finished)) .site-footer {
   }
 
   .folder-overlay-images img {
-    max-width: calc((100vw - 48px) / 3);
+    max-width: calc((100vw - 48px) / 2);
   }
 }
 
@@ -124,9 +127,9 @@ body:has(.folder-overlay.is-active:not(.finished)) .site-footer {
   .folder-overlay-images img {
     height: 32vh;
     max-height: 50vh;
-    width: calc((100% - 16px) / 3);
-    max-width: calc((100% - 16px) / 3);
-    min-width: calc((100% - 16px) / 3);
+    width: calc((100% - 8px) / 2);
+    max-width: calc((100% - 8px) / 2);
+    min-width: calc((100% - 8px) / 2);
   }
 }
 

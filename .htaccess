@@ -6,6 +6,9 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# /panel -> admin.php
+RewriteRule ^panel/?$ /lenaspage/admin.php [L]
+
 # Route everything else through index.php inside /lenaspage
 RewriteRule ^ index.php [QSA,L]
 
